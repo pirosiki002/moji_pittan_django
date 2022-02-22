@@ -18,18 +18,24 @@ def index(req):
     # SQLiteを操作するためのカーソルを作成
     cur = conn.cursor()
 
-    symbol = req.POST['nyuryoku1']
+    # symbol = req.POST['nyuryoku1']
+    symbol = req.POST.get('nyuryoku1')
     cur.execute("SELECT * FROM items WHERE word = '%s'" % symbol)
 
+    explain = ''
+    #こんな回りくどいことしなくてもよさそう
     for row in cur:
+        explain = row
 
-        params = { # <- 渡したい変数を辞書型オブジェクトに格納
-            'title': 'Hi Django!',
-            'subtitle': row,
-            'nyuryoku1': req.POST['nyuryoku1'],
-        }
+    params = { # <- 渡したい変数を辞書型オブジェクトに格納
+        'title': 'Hi Django!',
+        'subtitle': explain,
+        'nyuryoku1': symbol,
+        # 'subtitle': row,
+    }
 
     # DBとの接続を閉じる(必須)
     conn.close()
 
     return render(req, 'index.html', params) # <- 引数にparamsを追記
+    # return render(req, 'index.html') # <- 引数にparamsを追記
