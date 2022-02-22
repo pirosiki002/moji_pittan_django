@@ -50,7 +50,8 @@ def index(req):
         params = { # <- 渡したい変数を辞書型オブジェクトに格納
             'title': 'Hi Django!',
             'subtitle': row,
-            'nyuryoku1': req.POST['nyuryoku1'],
+            'nyuryoku1': symbol,
+            # 'nyuryoku1': req.POST['nyuryoku1'],
         }
 
     # DBとの接続を閉じる(必須)
