@@ -4,11 +4,27 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>HTML</title>
+    <title>アメリカごん（仮） </title>
     <link rel='stylesheet' type='text/css' href="{% static 'style.css' %}"/>
     <script type="text/javascript" src="{% static 'script.js' %}"></script>
   </head>
   <body>
+		<h1>アメリカごん（仮）</h1>
+        <div class ="save_alf" id="save_alf">現在選択中：</div>
+		<!----- ヘッダー ----->
+		<header>
+			<div id="result">経過秒数: </div>
+		</header>
+		
+		<!----- メインコンテンツ ----->
+		<div id="panel"></div>
+		<div id="e_word_list"></div>
+		<!----- メインコンテンツ END ----->
+		<!----- フッター ----->
+		<!-- <footer>フッター
+        </footer> -->
+        <div class="dic_disp">辞書を表示する場所</div>
+		<!----- フッター END ----->
     <h1 class="title">
       {{title}}
     </h1>
